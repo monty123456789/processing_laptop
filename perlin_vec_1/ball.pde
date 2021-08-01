@@ -19,11 +19,11 @@ class Ball {
     x+= .001;
     float n = noise(location.x * .01 + x) ;
     float n2 = noise(location.y * .005 + x) ;
-    float n3 = noise(location.z * .01 + x);
+    float n3 = noise(location.z * .007 + x);
     //println(n3);
-    n = map(n, 0, 1, -.5, .5);
-    n2 = map(n2, 0, 1, -.5, .5);
-    n3 = map(n3, 0, 1, -.5, .5);
+    n = map(n, 0, 1, -.2, .2);
+    n2 = map(n2, 0, 1, -.2, .2);
+    n3 = map(n3, 0, 1, -.2, .2);
     
     co1 = map(n, 0, 1, 0, 255);
     co2 = map(n, 0, 1, 0, 255);
@@ -34,10 +34,10 @@ class Ball {
     //float n4 = noise(location.y * x*100) + x ;
     //acceleration2 = new PVector(n3, n2);
     
-    acceleration = new PVector(n2, n, n3);
+    acceleration = new PVector(n2, n);
     velocity.add(acceleration);
     location.add(velocity);
-    velocity.limit(.5);
+    velocity.limit(.2);
     
   }
   
